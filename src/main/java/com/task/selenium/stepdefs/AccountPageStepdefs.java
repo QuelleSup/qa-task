@@ -1,20 +1,34 @@
 package com.task.selenium.stepdefs;
 
-import com.task.selenium.pageobjects.AccountPage;
+import com.task.selenium.pageobjects.AccountOverviewPage;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import lombok.AllArgsConstructor;
 
-
+@AllArgsConstructor
 public class AccountPageStepdefs {
 
-    private AccountPage accountPage;
+    private AccountOverviewPage accountOverviewPage;
 
-    public AccountPageStepdefs(AccountPage accountPage) {
-        this.accountPage = accountPage;
-    }
-
-    @Then("^Account should be successfully created and I'm logged into platform$")
+    @Then("^Account should be successfully created and I'm logged into platform")
     public void iClickSignUpFormFromMyAccountDropdown() {
-        accountPage.accountPageAppearsAsExpected();
+        accountOverviewPage.accountOverviewPageAppearsAsExpected();
     }
 
+    @When("^I open My Profile section")
+    public void iOpenMyProfileSection() {
+        accountOverviewPage.openMyProfileTab();
+    }
+
+    @And("^I fill address details")
+    public void iFillAddressDetails() {
+        accountOverviewPage.fillAddressDetails();
+    }
+
+    @Then("^Address details will be updated")
+    public void addressDetailsWillBeUpdated() {
+        accountOverviewPage.openMyProfileTab();
+        accountOverviewPage.addressDetailsAppearsCorrectlyWithUpdatedValues();
+    }
 }
