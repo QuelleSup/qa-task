@@ -7,8 +7,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/main/resources/features/CreateAccount.feature"},
+        features = {"src/main/resources/features/Scenario.feature"},
         glue = {"com.task"}
 )
-public final class RunTests extends TestRunner {
+public final class RunTestScenario extends TestRunner {
 }

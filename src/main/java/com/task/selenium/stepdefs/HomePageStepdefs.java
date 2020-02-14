@@ -1,6 +1,7 @@
 package com.task.selenium.stepdefs;
 
-import com.task.selenium.pageobjects.HomePageNavigation;
+import com.task.selenium.pageobjects.NavigationBar;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import lombok.AllArgsConstructor;
@@ -8,16 +9,22 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class HomePageStepdefs {
 
-    private HomePageNavigation homePageNavigation;
+    private NavigationBar navigationBar;
 
     @Given("^Website HomePage is open$")
     public void websiteHomePageIsOpen() {
-        homePageNavigation.homePageNavAppearsAsExpected();
+        navigationBar.homePageNavAppearsAsExpected();
     }
 
     @When("^I click signUp form from MyAccount dropdown$")
     public void iClickSignUpFormFromMyAccountDropdown() {
-        homePageNavigation.openMyAccountDropdown();
-        homePageNavigation.clickSignUpButton();
+        navigationBar.openMyAccountDropdown();
+        navigationBar.clickSignUpButton();
+    }
+
+    @And("^I log out from platform")
+    public void iLogOutFromPlatform() {
+        navigationBar.openMyAccountDropdown();
+        navigationBar.clickLogOutButton();
     }
 }

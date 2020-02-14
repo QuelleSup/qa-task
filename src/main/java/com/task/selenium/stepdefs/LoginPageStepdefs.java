@@ -5,6 +5,8 @@ import com.task.selenium.pageobjects.LoginPage;
 import io.cucumber.java.en.Given;
 import lombok.AllArgsConstructor;
 
+import java.io.IOException;
+
 @AllArgsConstructor
 public class LoginPageStepdefs {
 
@@ -12,7 +14,7 @@ public class LoginPageStepdefs {
     private AccountOverviewPage accountOverviewPage;
 
     @Given("^I am logged in client$")
-    public void iAmLoggedInClient() {
+    public void iAmLoggedInClient() throws IOException {
         loginPage.logInToApp();
         accountOverviewPage.accountOverviewPageAppearsAsExpected();
     }

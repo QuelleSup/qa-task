@@ -6,6 +6,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.AllArgsConstructor;
 
+import java.io.IOException;
+
 @AllArgsConstructor
 public class AccountPageStepdefs {
 
