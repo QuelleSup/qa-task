@@ -2,12 +2,27 @@ package com.task.selenium.pageobjects;
 
 import com.codeborne.selenide.SelenideElement;
 import com.task.selenium.utils.CssSelector;
+import com.task.selenium.utils.EmailUtil;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.task.selenium.utils.EmailUtil.*;
+import static com.task.selenium.utils.TestUserUtil.*;
 
+@Component
 public class SignUpPage {
-    private static final String EMAIL_FORMAT = "%s@simulated.com";
+
+    @Value("${name}")
+    private String firstName;
+    @Value("${lastname}")
+    private String lastName;
+    @Value("${password}")
+    private String password;
+    @Value("${email}")
+    private String email;
+    @Value("${phone.number}")
+    private String phoneNumber;
+
     private static final String FIRST_NAME = "firstname";
     private static final String LAST_NAME = "lastname";
     private static final String MOBILE_NUMBER = "phone";
@@ -26,8 +41,8 @@ public class SignUpPage {
     public void completeSignUpForm() {
         firstNameField.setValue("Jack");
         lastNameField.setValue("White");
-        mobileNumberField.setValue("21321321");
-        emailField.setValue(prepareEmailAndLog(EMAIL_FORMAT));
+        mobileNumberField.setValue("2112");
+        emailField.setValue(EmailUtil.prepareEmailAndLog("%s@sim.com"));
         passwordField.setValue("Welcome1");
         confirmPasswordField.setValue("Welcome1");
         signUpButton.click();

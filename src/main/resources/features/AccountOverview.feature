@@ -4,4 +4,4 @@ Feature: Account Overview
     Given I am logged in client
     When I open My Profile section
     And I fill address details
-    Then Address information will be updated
+    Then Address details will be updated

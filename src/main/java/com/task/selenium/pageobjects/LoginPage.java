@@ -2,7 +2,6 @@ package com.task.selenium.pageobjects;
 
 import com.codeborne.selenide.SelenideElement;
 import com.task.selenium.utils.CssSelector;
-import io.cucumber.java.en.Given;
 
 import static com.codeborne.selenide.Selenide.$;
 

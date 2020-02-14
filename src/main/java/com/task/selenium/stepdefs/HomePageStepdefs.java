@@ -5,11 +5,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import lombok.AllArgsConstructor;
 
-import java.util.logging.Logger;
-
 @AllArgsConstructor
 public class HomePageStepdefs {
-    
+
     private HomePageNavigation homePageNavigation;
 
     @Given("^Website HomePage is open$")
