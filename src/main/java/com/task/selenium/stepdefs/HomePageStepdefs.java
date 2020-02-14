@@ -1,6 +1,7 @@
 package com.task.selenium.stepdefs;
 
 import com.task.selenium.pageobjects.NavigationBar;
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -22,7 +23,7 @@ public class HomePageStepdefs {
         navigationBar.clickSignUpButton();
     }
 
-    @And("^I log out from platform")
+    @After("@LogOutAfterScenario")
     public void iLogOutFromPlatform() {
         navigationBar.openMyAccountDropdown();
         navigationBar.clickLogOutButton();

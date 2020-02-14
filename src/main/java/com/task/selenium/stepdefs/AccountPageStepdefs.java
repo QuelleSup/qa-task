@@ -24,12 +24,12 @@ public class AccountPageStepdefs {
     }
 
     @And("^I fill address details")
-    public void iFillAddressDetails() {
+    public void iFillAddressDetails() throws IOException {
         accountOverviewPage.fillAddressDetails();
     }
 
     @Then("^Address details will be updated")
-    public void addressDetailsWillBeUpdated() {
+    public void addressDetailsWillBeUpdated()  {
         accountOverviewPage.openMyProfileTab();
         accountOverviewPage.addressDetailsAppearsCorrectlyWithUpdatedValues();
     }
