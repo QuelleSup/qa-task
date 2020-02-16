@@ -5,7 +5,7 @@ import com.task.selenium.entities.User;
 import com.task.selenium.utils.CssSelector;
 import com.task.selenium.utils.TestUserUtil;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
+
 
 import java.io.IOException;
 
