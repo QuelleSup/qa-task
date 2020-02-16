@@ -24,7 +24,7 @@ public class AccountPageStepdefs {
     }
 
     @And("^I fill address details")
-    public void iFillAddressDetails() throws IOException {
+    public void iFillAddressDetails() {
         accountOverviewPage.fillAddressDetails();
     }
 

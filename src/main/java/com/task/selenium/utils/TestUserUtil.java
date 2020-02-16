@@ -14,7 +14,7 @@ public final class TestUserUtil {
     public static void setUserProperties() throws IOException {
         User user = new User("Jack", "White",
                 prepareEmailAndLog("%s@dot.com"), "030203405",
-                "Welcome1", "FirstAddress1", "SecondAddress2", "Krakow", "Malopolskie", "31-586");
+                "Welcome1", "FirstAddress1", "SecondAddress2", "Krakow", "Malopolskie", "31-586", "Poland");
 
         Properties properties = new Properties();
 
@@ -28,6 +28,7 @@ public final class TestUserUtil {
         properties.put("city", user.getCity());
         properties.put("state", user.getState());
         properties.put("postal.code", user.getPostalCode());
+        properties.put("country", user.getCountry());
         FileOutputStream outputStream = new FileOutputStream(PROPERTIES_PATH);
 
         properties.store(outputStream, "");
@@ -58,7 +59,8 @@ public final class TestUserUtil {
                 properties.getProperty("address2"),
                 properties.getProperty("city"),
                 properties.getProperty("state"),
-                properties.getProperty("postal.code"));
+                properties.getProperty("postal.code"),
+                properties.getProperty("country"));
     }
 
 }

@@ -15,8 +15,7 @@ import static com.task.selenium.utils.TestUserUtil.getAllUserDetailsFromProperti
 
 public class AccountOverviewPage {
 
-    User userDetails = getAllUserDetailsFromPropertiesFile();
-
+    private User userDetails;
     private SelenideElement userWelcome = $(CssSelector.cssClass("text-align-left"));
     private ElementsCollection navElementsCollection = $$(CssSelector.cssClass("nav-link"));
     private SelenideElement addressInput = $(CssSelector.name("address1"));
@@ -24,17 +23,18 @@ public class AccountOverviewPage {
     private SelenideElement cityInput = $(CssSelector.name("city"));
     private SelenideElement stateRegionInput = $(CssSelector.name("state"));
     private SelenideElement postalZipCodeInput = $(CssSelector.name("zip"));
-    private SelenideElement countryDropdown = $(CssSelector.cssClass("chosen-container .chosen-single"));
+    private SelenideElement countryDropdown = $(CssSelector.cssClass("chosen-container.chosen-single"));
     private SelenideElement fillCountryInput = $(CssSelector.cssClass("chosen-search-input"));
     private SelenideElement countryResult = $(CssSelector.cssClass("active-result"));
     private SelenideElement submitButton = $(CssSelector.cssClass("btn.updateprofile"));
 
     public AccountOverviewPage() throws IOException {
+        userDetails = getAllUserDetailsFromPropertiesFile();
     }
 
 
     public void accountOverviewPageAppearsAsExpected() {
-        userWelcome.shouldHave(Condition.text("Hi, Jack White"));
+        userWelcome.shouldHave(Condition.text(String.format("Hi, %s %s", userDetails.getFirstName(), userDetails.getLastName())));
     }
 
     public void openMyProfileTab() {
@@ -54,7 +54,7 @@ public class AccountOverviewPage {
     private void setCountry() {
         countryDropdown.click();
         fillCountryInput.click();
-        fillCountryInput.setValue("Poland");
+        fillCountryInput.setValue(userDetails.getCountry());
         countryResult.click();
     }
 

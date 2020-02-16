@@ -17,6 +17,7 @@ public class User {
     private String city;
     private String state;
     private String postalCode;
+    private String country;
 
     public User(String email, String password) {
         this.email = email;
