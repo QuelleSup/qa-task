@@ -24,6 +24,7 @@ public class BookingFlow {
     public static void config() throws IOException {
         RestAssured.baseURI = getProperty("test.url");
     }
+
     @Test
     public void shouldReturnValidToken() throws IOException {
         Response response = getAuthTokenResponse();
