@@ -1,14 +1,25 @@
 Feature: Whole test scenarios
 
-  @LogOutAfterScenario
   Scenario: Create account with valid credentials
     Given Website HomePage is open
     When I click signUp form from MyAccount dropdown
     And I fill sign up form with valid credentials
-    Then Account should be successfully created and I'm logged into platform
+    Then I will be logged into to Account Overview page
+    And I Log out from platform
 
   Scenario: Fill address data in existing profile
-    Given I am logged in client
+    Given I log in to app
     When I open My Profile section
-    And I fill address details
+    And I fill and submit address details
     Then Address details will be updated
+    And I Log out from platform
+
+  Scenario: Change user password
+    Given I log in to app
+    When I open My Profile section
+    And I change my password and submit
+    And I Log out from platform
+    When I log in to app
+    Then I will be logged into to Account Overview page
+
+

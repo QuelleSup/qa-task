@@ -37,6 +37,7 @@ public class ChromeBrowser {
       setUpChromeBrowserForOS();
       WebDriver driver = new ChromeDriver();
       driver.manage().deleteAllCookies();
+      driver.manage().window().fullscreen();
       driver.get("http://phptravels.net/home");
       setWebDriver(driver);
    }

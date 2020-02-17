@@ -23,7 +23,7 @@ public class HomePageStepdefs {
         navigationBar.clickSignUpButton();
     }
 
-    @After("@LogOutAfterScenario")
+    @And("^I Log out from platform")
     public void iLogOutFromPlatform() {
         navigationBar.openMyAccountDropdown();
         navigationBar.clickLogOutButton();

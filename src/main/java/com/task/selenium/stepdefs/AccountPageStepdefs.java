@@ -1,6 +1,7 @@
 package com.task.selenium.stepdefs;
 
 import com.task.selenium.pageobjects.AccountOverviewPage;
+import com.task.selenium.utils.TestUserUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,24 +14,29 @@ public class AccountPageStepdefs {
 
     private AccountOverviewPage accountOverviewPage;
 
-    @Then("^Account should be successfully created and I'm logged into platform")
-    public void iClickSignUpFormFromMyAccountDropdown() {
-        accountOverviewPage.accountOverviewPageAppearsAsExpected();
-    }
-
     @When("^I open My Profile section")
     public void iOpenMyProfileSection() {
         accountOverviewPage.openMyProfileTab();
     }
 
-    @And("^I fill address details")
-    public void iFillAddressDetails() {
-        accountOverviewPage.fillAddressDetails();
+    @And("^I fill and submit address details")
+    public void iFillAndSubmitAddressDetails() {
+        accountOverviewPage.fillAndSubmitAddressDetails();
     }
 
     @Then("^Address details will be updated")
     public void addressDetailsWillBeUpdated()  {
         accountOverviewPage.openMyProfileTab();
         accountOverviewPage.addressDetailsAppearsCorrectlyWithUpdatedValues();
+    }
+
+    @And("^I change my password and submit")
+    public void changePasswordAndSubmit() throws Exception{
+        accountOverviewPage.changePasswordAndSubmit();
+    }
+
+    @Then("^I will be logged into to Account Overview page")
+    public void iWillBeLoggedIntoAccountOverviewPage() {
+        accountOverviewPage.accountOverviewPageAppearsAsExpected();
     }
 }

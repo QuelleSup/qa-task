@@ -8,6 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class NavigationBar {
 
+    private static final int SLEEP_TIME = 1000;
     private static final String REGISTER_URL = "https://phptravels.net/register";
     private static final String LOGOUT_URL = "https://phptravels.net/account/logout";
 
@@ -25,15 +26,16 @@ public class NavigationBar {
     }
 
     public void openMyAccountDropdown() {
-        myAccountButton.waitUntil(visible, 1000).hover().click();
+        myAccountButton.scrollTo();
+        myAccountButton.waitUntil(visible, SLEEP_TIME).click();
     }
 
     public void clickSignUpButton() {
-        signUpButton.waitUntil(visible, 1000).hover().click();
+        signUpButton.waitUntil(visible, SLEEP_TIME).click();
     }
 
     public void clickLogOutButton() {
-        logoutButton.waitUntil(visible, 1000).hover().click();
+        logoutButton.waitUntil(visible, SLEEP_TIME).click();
     }
 
 }

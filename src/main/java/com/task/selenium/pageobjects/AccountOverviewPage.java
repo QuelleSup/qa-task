@@ -5,6 +5,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.task.selenium.entities.User;
 import com.task.selenium.utils.CssSelector;
+import com.task.selenium.utils.TestUserUtil;
 
 import java.io.IOException;
 
@@ -27,6 +28,8 @@ public class AccountOverviewPage {
     private SelenideElement fillCountryInput = $(CssSelector.cssClass("chosen-search-input"));
     private SelenideElement countryResult = $(CssSelector.cssClass("active-result"));
     private SelenideElement submitButton = $(CssSelector.cssClass("btn.updateprofile"));
+    private SelenideElement passwordInput = $(CssSelector.name("password"));
+    private SelenideElement confirmPasswordInput = $(CssSelector.name("confirmpassword"));
 
     public AccountOverviewPage() throws IOException {
         userDetails = getAllUserDetailsFromPropertiesFile();
@@ -41,14 +44,14 @@ public class AccountOverviewPage {
         navElementsCollection.get(1).click();
     }
 
-    public void fillAddressDetails() {
+    public void fillAndSubmitAddressDetails() {
         addressInput.setValue(userDetails.getFirstAddress());
         secondAddressInput.setValue(userDetails.getSecondAddress());
         cityInput.setValue(userDetails.getCity());
         stateRegionInput.setValue(userDetails.getState());
         postalZipCodeInput.setValue(userDetails.getPostalCode());
 //        setCountry();
-        submitButton.scrollIntoView(true).click();
+        submitButton.scrollTo().click();
     }
 
     private void setCountry() {
@@ -66,6 +69,13 @@ public class AccountOverviewPage {
         postalZipCodeInput.shouldHave(Condition.value(userDetails.getPostalCode()));
         // Seems that checking selected country is bugged so I commented this piece of code
 //        countryDropdown.$("span").shouldHave(Condition.text("Poland"));
+    }
 
+    public void changePasswordAndSubmit() throws IOException {
+        String newPassword = userDetails.getPassword()+"1";
+        passwordInput.setValue(newPassword);
+        confirmPasswordInput.setValue(newPassword);
+        submitButton.scrollTo().waitUntil(Condition.visible, 3000).click();
+        TestUserUtil.setNewPasswordAndEmail(newPassword, userDetails.getEmail());
     }
 }

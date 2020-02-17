@@ -13,8 +13,8 @@ public class LoginPageStepdefs {
     private LoginPage loginPage;
     private AccountOverviewPage accountOverviewPage;
 
-    @Given("^I am logged in client$")
-    public void iAmLoggedInClient() throws IOException {
+    @Given("^I log in to app$")
+    public void iLogInToApp() throws IOException {
         loginPage.logInToApp();
         accountOverviewPage.accountOverviewPageAppearsAsExpected();
     }

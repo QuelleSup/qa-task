@@ -35,6 +35,13 @@ public final class TestUserUtil {
 
     }
 
+    public static void setNewPasswordAndEmail(String newPassword, String email) throws IOException {
+        Properties properties = new Properties();
+        properties.setProperty("password", newPassword);
+        properties.setProperty("email", email);
+        FileOutputStream outputStream = new FileOutputStream(PROPERTIES_PATH);
+        properties.store(outputStream, "");
+    }
     private static Properties readPropertiesFile() throws IOException {
         FileInputStream fileInputStream = new FileInputStream(PROPERTIES_PATH);
         Properties properties = new Properties();
