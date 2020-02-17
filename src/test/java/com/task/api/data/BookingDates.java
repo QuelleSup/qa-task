@@ -1,5 +1,6 @@
 package com.task.api.data;
 
+
 import lombok.Data;
 
 @Data

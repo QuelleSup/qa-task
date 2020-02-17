@@ -1,4 +1,4 @@
-package com.task.api;
+package com.task.api.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
