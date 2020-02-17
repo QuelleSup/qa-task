@@ -71,11 +71,12 @@ public class AccountOverviewPage {
 //        countryDropdown.$("span").shouldHave(Condition.text("Poland"));
     }
 
-    public void changePasswordAndSubmit() throws IOException {
+    public void changePasswordAndSubmit() throws IOException, InterruptedException {
         String newPassword = userDetails.getPassword()+"1";
-        passwordInput.setValue(newPassword);
-        confirmPasswordInput.setValue(newPassword);
-        submitButton.scrollTo().waitUntil(Condition.visible, 3000).click();
+        passwordInput.waitUntil(Condition.visible, 1000).setValue(newPassword);
+        confirmPasswordInput.waitUntil(Condition.visible, 1000).setValue(newPassword);
+        submitButton.click();
+        Thread.sleep(5000);
         TestUserUtil.setNewPasswordAndEmail(newPassword, userDetails.getEmail());
     }
 }

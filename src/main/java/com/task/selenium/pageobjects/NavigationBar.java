@@ -26,8 +26,7 @@ public class NavigationBar {
     }
 
     public void openMyAccountDropdown() {
-        myAccountButton.scrollTo();
-        myAccountButton.waitUntil(visible, SLEEP_TIME).click();
+        myAccountButton.scrollTo().waitUntil(visible, SLEEP_TIME).click();
     }
 
     public void clickSignUpButton() {
