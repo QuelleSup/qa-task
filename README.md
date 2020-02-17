@@ -1,0 +1,1 @@
+To execute tests simply provide `mvn clean verify -Ptest` in command line. 
